@@ -1,0 +1,53 @@
+#! /c/Source/iverilog-install/bin/vvp
+:ivl_version "12.0 (devel)" "(s20150603-1539-g2693dd32b)";
+:ivl_delay_selection "TYPICAL";
+:vpi_time_precision + 0;
+:vpi_module "C:\iverilog\lib\ivl\system.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_sys.vpi";
+:vpi_module "C:\iverilog\lib\ivl\vhdl_textio.vpi";
+:vpi_module "C:\iverilog\lib\ivl\v2005_math.vpi";
+:vpi_module "C:\iverilog\lib\ivl\va_math.vpi";
+S_000001fbf3409520 .scope module, "maainn_tb" "maainn_tb" 2 1;
+ .timescale 0 0;
+v000001fbf34c5350_0 .var "A", 0 0;
+v000001fbf34c53f0_0 .var "B", 0 0;
+v000001fbf34c5490_0 .net "Y", 0 0, L_000001fbf34c2f90;  1 drivers
+v000001fbf34c5530_0 .var "sel", 0 0;
+S_000001fbf34c51c0 .scope module, "DUT" "mainn" 2 5, 3 1 0, S_000001fbf3409520;
+ .timescale 0 0;
+    .port_info 0 /INPUT 1 "A";
+    .port_info 1 /INPUT 1 "B";
+    .port_info 2 /INPUT 1 "sel";
+    .port_info 3 /OUTPUT 1 "Y";
+v000001fbf340ec30_0 .net "A", 0 0, v000001fbf34c5350_0;  1 drivers
+v000001fbf34067e0_0 .net "B", 0 0, v000001fbf34c53f0_0;  1 drivers
+v000001fbf340bcb0_0 .net "Y", 0 0, L_000001fbf34c2f90;  alias, 1 drivers
+v000001fbf340eea0_0 .net "sel", 0 0, v000001fbf34c5530_0;  1 drivers
+L_000001fbf34c2f90 .functor MUXZ 1, v000001fbf34c53f0_0, v000001fbf34c5350_0, v000001fbf34c5530_0, C4<>;
+    .scope S_000001fbf3409520;
+T_0 ;
+    %vpi_call 2 9 "$dumpfile", "dum.vcd" {0 0 0};
+    %vpi_call 2 10 "$dumpvars", 32'sb00000000000000000000000000000000, S_000001fbf3409520 {0 0 0};
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001fbf34c5350_0, 0, 1;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001fbf34c53f0_0, 0, 1;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001fbf34c5530_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 1, 0, 1;
+    %store/vec4 v000001fbf34c5530_0, 0, 1;
+    %delay 20, 0;
+    %pushi/vec4 0, 0, 1;
+    %store/vec4 v000001fbf34c5530_0, 0, 1;
+    %delay 20, 0;
+    %vpi_call 2 22 "$display", "Test Complete" {0 0 0};
+    %vpi_call 2 23 "$finish" {0 0 0};
+    %end;
+    .thread T_0;
+# The file index is used to find the file name in the following table.
+:file_names 4;
+    "N/A";
+    "<interactive>";
+    "maainn_tb.v";
+    "mainn.v";
