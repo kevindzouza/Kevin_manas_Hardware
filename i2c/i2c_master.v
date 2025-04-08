@@ -36,7 +36,7 @@ module i2c_master (
 
     // State machine
     localparam IDLE = 0, START = 1, ADDR = 2, ACK1 = 3, DATA = 4, ACK2 = 5, STOP = 6;
-    always @(posedge clk or posedge rst) begin
+    always @(posedge scl or posedge rst) begin
         if (rst) begin
             state <= IDLE;
             ready <= 1;
